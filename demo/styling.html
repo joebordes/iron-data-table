@@ -25,6 +25,14 @@
       <template>
         <template is="dom-bind">
           <style is="custom-style">
+            #grid1 data-table-row {
+              height: 60px;
+              align-items: center;
+            }
+            #grid1 data-table-cell {
+              height: 60px;
+            }
+
             #grid1 {
               --default-primary-color: red;
               font-family: 'Roboto', 'Noto', sans-serif;
@@ -33,10 +41,6 @@
                 color: #ccc;
                 font-size: 1.2em;
                 font-weight: 400;
-              }
-              --iron-data-table-row: {
-                height: 60px;
-                align-items: center;
               }
               --iron-data-table-row-odd: {
                 background-color: #fff;
