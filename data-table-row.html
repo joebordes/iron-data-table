@@ -14,11 +14,13 @@
         @apply(--iron-data-table-row-selected);
       }
 
-      :host(:not([header])[even]) {
+      :host(:not([header])[even]),
+      :host(:not([footer])[even]) {
         @apply(--iron-data-table-row-even);
       }
 
-      :host(:not([header]):not([even])) {
+      :host(:not([header]):not([even])),
+      :host(:not([footer]):not([even])) {
         @apply(--iron-data-table-row-odd);
       }
 
@@ -27,7 +29,8 @@
         @apply(--iron-data-table-row-focused);
       }
 
-      :host(:not([header]):hover) {
+      :host(:not([header]):hover),
+      :host(:not([footer]):hover) {
         @apply(--iron-data-table-row-hover);
       }
 
@@ -48,6 +51,7 @@
     <div class="cells">
       <content select="data-table-checkbox"></content>
       <content select="data-table-cell"></content>
+      <content select="data-table-cell-aggregate"></content>
     </div>
     <div class="details">
       <content select="data-table-row-detail"></content>

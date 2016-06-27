@@ -23,6 +23,7 @@ limitations under the License.
 <link rel="import" href="data-table-column.html">
 <link rel="import" href="data-table-column-sort.html">
 <link rel="import" href="data-table-cell.html">
+<link rel="import" href="data-table-cell-aggregate.html">
 <link rel="import" href="data-table-row.html">
 <link rel="import" href="data-table-checkbox.html">
 <link rel="import" href="data-table-row-detail.html">
@@ -226,6 +227,24 @@ inspired styles to your `iron-data-table`.
           </div>
         </template>
       </iron-list>
+      <div id="footer">
+        <data-table-row footer>
+          <data-table-checkbox header hidden$="[[!multiSelection]]" on-tap="_toggleSelectAll" checked="[[_isSelectAllChecked(selectedItems.length, selectedItems.inverted)]]" indeterminate="[[_isSelectAllIndeterminate(selectedItems.length)]]"></data-table-checkbox>
+          <template is="dom-repeat" items="[[columns]]" as="column">
+            <data-table-cell-aggregate footer
+                             align-right="[[column.alignRight]]"
+                             before-bind="[[beforeCellBind]]"
+                             column="[[column]]"
+                             flex="[[column.flex]]"
+                             hidden="[[column.hidden]]"
+                             order="[[column.order]]"
+                             table="[[_this]]"
+                             template="[[column.headerTemplate]]"
+                             width="[[column.width]]"
+                             allItems="[[_cachedItems]]">
+            </data-table-cell-aggregate>
+          </template>
+        </data-table-row>
     </div>
     <paper-spinner-lite active></paper-spinner-lite>
     <content select="data-table-column"></content>
